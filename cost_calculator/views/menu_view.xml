@@ -1,0 +1,41 @@
+<odoo>
+
+    <menuitem
+            id="calculator_menu_root"
+            name="Cost calculator"
+            action="action_records_calculator"
+            sequence="30"
+    />
+
+    <menuitem
+            id="menu_calculator_data"
+            name="Data"
+            parent="calculator_menu_root"
+            sequence="1"
+    />
+
+    <menuitem
+            id="menu_elements_calculator_records"
+            name="Records"
+            action="action_records_calculator"
+            parent="menu_calculator_data"
+            sequence="1"
+    />
+
+    <menuitem
+            id="menu_components_production_calculator"
+            name="Components for production"
+            action="action_components_production"
+            parent="menu_calculator_data"
+            sequence="2"
+    />
+
+    <menuitem
+            id="menu_parameters_calculator"
+            name="Parameters"
+            action="action_parameters_calculator"
+            parent="menu_calculator_data"
+            sequence="3"
+    />
+
+</odoo>
