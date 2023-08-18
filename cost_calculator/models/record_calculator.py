@@ -16,7 +16,7 @@ class RecordCalculator(models.Model):
     epoxy_resin = fields.Many2one('component.production', domain=[('type', '=', 'epoxy_resin')])
     form = fields.Selection([('oval', 'Oval'), ('rectangle', 'Rectangle')], default='rectangle')
     tinting = fields.Boolean()
-    living_land = fields.Boolean()
+    living_land = fields.Boolean('Living edge')
     polishing = fields.Boolean()
     warning = fields.Char(readonly=True, compute='_compute_warning')
     square = fields.Float(string='Square (in m2)', readonly=True, compute='_compute_square')
@@ -289,9 +289,12 @@ class RecordCalculator(models.Model):
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "PLH")]).value
             rec.total_ratio = round(total_ratio, 2)
 
-    @api.depends('cost_of_wood', 'cost_of_epoxy_resin', 'cost_of_work', 'total_ratio', 'additional_expenses')
+    @api.depends('cost_of_wood', 'cost_of_epoxy_resin', 'cost_of_work', 'total_ratio', 'additional_expenses', 'wood')
     def _compute_total_cost_(self):
         for rec in self:
+            if not rec.wood:
+                rec.total_cost = 0
+                return
             rec.total_cost = round(
                 (rec.cost_of_wood + rec.cost_of_epoxy_resin + rec.cost_of_work) * rec.total_ratio +
                 rec.additional_expenses,

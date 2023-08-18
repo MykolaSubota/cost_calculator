@@ -7,6 +7,6 @@ class ComponentProduction(models.Model):
     _rec_name = 'name'
 
     name = fields.Char()
-    cost = fields.Float()
+    cost = fields.Float('Cost (in USD)')
     coefficient = fields.Float()
     type = fields.Selection([('wood', 'Wood'), ('epoxy_resin', 'Epoxy Resin')], default='wood')

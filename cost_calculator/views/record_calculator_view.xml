@@ -45,25 +45,25 @@
                             <field name="additional_expenses"/>
                             <field name="coefficients"/>
                             <field name="total_ratio"/>
-                            <field name="total_cost"/>
-                            <field name="total_cost_uah"/>
                         </group>
                         <group>
-                            <field name="wood_preparation_time"/>
-                            <field name="formwork_assembly_time"/>
-                            <field name="filling_time"/>
-                            <field name="cnc_installation_time"/>
-                            <field name="alignment_time_on_cnc"/>
-                            <field name="cutting_time_along_contour"/>
-                            <field name="slot_milling_time"/>
-                            <field name="calibration_time"/>
-                            <field name="grinding_time"/>
-                            <field name="edge_grinding_time"/>
-                            <field name="time_for_living_land"/>
-                            <field name="polishing_time"/>
-                            <field name="time_of_coverage"/>
-                            <field name="time_of_assembly"/>
-                            <field name="packing_time"/>
+                            <field name="wood_preparation_time" invisible="True"/>
+                            <field name="formwork_assembly_time" invisible="True"/>
+                            <field name="filling_time" invisible="True"/>
+                            <field name="cnc_installation_time" invisible="True"/>
+                            <field name="alignment_time_on_cnc" invisible="True"/>
+                            <field name="cutting_time_along_contour" invisible="True"/>
+                            <field name="slot_milling_time" invisible="True"/>
+                            <field name="calibration_time" invisible="True"/>
+                            <field name="grinding_time" invisible="True"/>
+                            <field name="edge_grinding_time" invisible="True"/>
+                            <field name="time_for_living_land" invisible="True"/>
+                            <field name="polishing_time" invisible="True"/>
+                            <field name="time_of_coverage" invisible="True"/>
+                            <field name="time_of_assembly" invisible="True"/>
+                            <field name="packing_time" invisible="True"/>
+                            <field name="total_cost"/>
+                            <field name="total_cost_uah"/>
                         </group>
                     </group>
                 </sheet>
