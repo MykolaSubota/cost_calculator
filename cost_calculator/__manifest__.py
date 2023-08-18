@@ -1,7 +1,7 @@
 {
     'name': 'Price Calculator',
     'author': 'Mykola Subota',
-    'version': '0.1.0.1',
+    'version': '0.1.0.2',
     'summary': 'Calculator for calculating the cost of tables.',
     'sequence': 100,
     'category': 'Inventory/Inventory',

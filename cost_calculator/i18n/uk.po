@@ -422,7 +422,7 @@ msgstr "Загальний коефіцієнт"
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__total_amount_of_working_time
 msgid "Total amount of working time (in hours)"
-msgstr ""
+msgstr "Загальна кількість робочого часу (в годинах)"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__total_cost_uah
