@@ -5,6 +5,11 @@
         <field name="arch" type="xml">
             <tree string="Records">
                 <field name="client"/>
+                <field name="total_cost"/>
+                <field name="length"/>
+                <field name="width"/>
+                <field name="thickness"/>
+                <field name="epoxy_resin"/>
             </tree>
         </field>
     </record>
