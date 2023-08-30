@@ -1,0 +1,476 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* cost_calculator
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-18 07:14+0000\n"
+"PO-Revision-Date: 2023-08-18 07:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object3
+msgid "Additional expenses"
+msgstr "Додаткові витрати"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__additional_expenses
+msgid "Additional expenses (in USD)"
+msgstr "Додаткові витрати (у доларах США)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__alignment_time_on_cnc
+msgid "Alignment time on CNC (in minutes)"
+msgstr "Час вирівнювання на ЧПК (в хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object8
+msgid "Alignment time on CNC (min/m2)"
+msgstr "Час вирівнювання на ЧПК (в хвилинах)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__cnc_installation_time
+msgid "CNC installation time (in minutes)"
+msgstr "Час установки ЧПК (в хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object7
+msgid "CNC installation time (min)"
+msgstr "Час установки ЧПК (хв)"
+
+#. module: cost_calculator
+#: model:ir.model,name:cost_calculator.model_record_calculator
+msgid "Calculator records"
+msgstr "Записи калькулятора"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__calibration_time
+msgid "Calibration time (in minutes)"
+msgstr "Час калібрування (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object11
+msgid "Calibration time (min/m2)"
+msgstr "Час калібрування (хв/м2)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__client
+msgid "Client"
+msgstr "Клієнт"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__code
+msgid "Code"
+msgstr "Код"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__coefficient
+msgid "Coefficient"
+msgstr "Коефіцієнт"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object22
+msgid "Coefficient of \"living edge\""
+msgstr "Коефіцієнт \"живого краю\""
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__coefficients
+msgid "Coefficients"
+msgstr "Коефіцієнти"
+
+#. module: cost_calculator
+#: model:ir.actions.act_window,name:cost_calculator.action_components_production
+#: model:ir.model,name:cost_calculator.model_component_production
+#: model:ir.ui.menu,name:cost_calculator.menu_components_production_calculator
+#: model_terms:ir.ui.view,arch_db:cost_calculator.components_production_view_tree
+msgid "Components for production"
+msgstr "Компоненти для виробництва"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__cost
+msgid "Cost (in USD)"
+msgstr "Вартість (у доларах США)"
+
+#. module: cost_calculator
+#: model:ir.ui.menu,name:cost_calculator.calculator_menu_root
+msgid "Cost calculator"
+msgstr "Калькулятор вартості"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__cost_of_epoxy_resin
+msgid "Cost of epoxy resin (in USD)"
+msgstr "Вартість епоксидної смоли (у доларах США)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__cost_of_wood
+msgid "Cost of wood (in USD)"
+msgstr "Вартість деревини (у доларах США)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object2
+msgid "Cost of wood delivery"
+msgstr "Вартість доставки деревини"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__cost_of_work
+msgid "Cost of work (in USD)"
+msgstr "Вартість робіт (у доларах США)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__create_uid
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__create_uid
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__create_uid
+msgid "Created by"
+msgstr "Створив(-ла)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__create_date
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__create_date
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__cutting_time_along_contour
+msgid "Cutting time along contour (in minutes)"
+msgstr "Час різання по контуру (в хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object9
+msgid "Cutting time along contour (min)"
+msgstr "Час різання по контуру (хв)"
+
+#. module: cost_calculator
+#: model:ir.ui.menu,name:cost_calculator.menu_calculator_data
+msgid "Data"
+msgstr "Дані"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__display_name
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__display_name
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__edge_grinding_time
+msgid "Edge grinding time (in minutes)"
+msgstr "Час шліфування країв (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object13
+msgid "Edge grinding time (min/m)"
+msgstr "Час шліфування країв (хв/м)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__epoxy_resin
+#: model:ir.model.fields.selection,name:cost_calculator.selection__component_production__type__epoxy_resin
+msgid "Epoxy Resin"
+msgstr "Епоксидна смола"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object1
+msgid "Epoxy resin delivery cost (in USD)"
+msgstr "Вартість доставки епоксидної смоли (в доларах США)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__fill_volume
+msgid "Fill volume (in m3)"
+msgstr "Об'єм заливки (в м3)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__filling_time
+msgid "Filling time (in minutes)"
+msgstr "Час заливки (в хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object6
+msgid "Filling time (min/18l)"
+msgstr "Час заливки (хв/18л)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__form
+msgid "Form"
+msgstr "Форма"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__formwork_assembly_time
+msgid "Formwork assembly time (in minutes)"
+msgstr "Час збирання опалубки (в хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object5
+msgid "Formwork assembly time (min/18l)"
+msgstr "Час збирання опалубки (хв/18л)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__grinding_time
+msgid "Grinding time (in minutes)"
+msgstr "Час шліфування (в хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object12
+msgid "Grinding time (min/m2)"
+msgstr "Час шліфування (хв/м2)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__id
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__id
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__id
+msgid "ID"
+msgstr "ID"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object20
+msgid "Initial coefficient"
+msgstr "Початковий коефіцієнт"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object19
+msgid "Labour costs (in USD)"
+msgstr "Витрати на робочу силу (у доларах США)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production____last_update
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator____last_update
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator____last_update
+msgid "Last Modified on"
+msgstr "Востаннє змінено"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__write_uid
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__write_uid
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив(-ла)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__write_date
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__write_date
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__write_date
+msgid "Last Updated on"
+msgstr "Востаннє оновлено"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__length
+msgid "Length (in mm)"
+msgstr "Довжина (в мм)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__living_land
+msgid "Living Land"
+msgstr "Живий край"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__name
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__name
+msgid "Name"
+msgstr "Назва"
+
+#. module: cost_calculator
+#: model_terms:ir.actions.act_window,help:cost_calculator.action_components_production
+msgid "No components for production!"
+msgstr "Нема ніяких компонентів для виробництва!"
+
+#. module: cost_calculator
+#: model_terms:ir.actions.act_window,help:cost_calculator.action_parameters_calculator
+msgid "No parameters!"
+msgstr "Нема ніяких параметрів!"
+
+#. module: cost_calculator
+#: model_terms:ir.actions.act_window,help:cost_calculator.action_records_calculator
+msgid "No records!"
+msgstr "Нема ніяких записів!"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__form__oval
+msgid "Oval"
+msgstr "Овал"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__packing_time
+msgid "Packing time (in minutes)"
+msgstr "Час пакування (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object18
+msgid "Packing time (min/m2)"
+msgstr "Час пакування (хв/м2)"
+
+#. module: cost_calculator
+#: model:ir.actions.act_window,name:cost_calculator.action_parameters_calculator
+#: model:ir.model,name:cost_calculator.model_parameter_calculator
+#: model:ir.ui.menu,name:cost_calculator.menu_parameters_calculator
+#: model_terms:ir.ui.view,arch_db:cost_calculator.parameter_calculator_view_tree
+msgid "Parameters"
+msgstr "Параметри"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object0
+msgid "Percentage of filling"
+msgstr "Відсоток заливки"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__perimeter
+msgid "Perimeter (in m)"
+msgstr "Периметр (в м)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__polishing
+msgid "Polishing"
+msgstr "Полірування"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object23
+msgid "Polishing coefficient"
+msgstr ""
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__polishing_time
+msgid "Polishing time (in minutes)"
+msgstr "Коефіцієнт полірування"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object15
+msgid "Polishing time (min/m2)"
+msgstr "Час полірування (хв/м2)"
+
+#. module: cost_calculator
+#: model:ir.actions.act_window,name:cost_calculator.action_records_calculator
+#: model:ir.ui.menu,name:cost_calculator.menu_elements_calculator_records
+#: model_terms:ir.ui.view,arch_db:cost_calculator.record_calculator_view_tree
+msgid "Records"
+msgstr "Записи"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__form__rectangle
+msgid "Rectangle"
+msgstr "Прямокутник"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__slot_milling_time
+msgid "Slot milling time (in minutes)"
+msgstr "Час фрезерування пазів (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object10
+msgid "Slot milling time (min)"
+msgstr "Час фрезерування пазів (хв)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__square
+msgid "Square (in m2)"
+msgstr "Площа (в м2)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__thickness
+msgid "Thickness (in mm)"
+msgstr "Товщина (в мм)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__time_for_living_land
+msgid "Time for \"living land\" (in minutes)"
+msgstr "Час для \"живого краю\" (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object14
+msgid "Time for \"living land\" (min/m)"
+msgstr "Час для \"живого краю\" (хв/м)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__time_of_assembly
+msgid "Time of assembly (in minutes)"
+msgstr "Час збирання (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object17
+msgid "Time of assembly (min/m2)"
+msgstr "Час збирання (хв/м2)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__time_of_coverage
+msgid "Time of coverage (in minutes)"
+msgstr "Час покриття (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object16
+msgid "Time of coverage (min/m2)"
+msgstr "Час покриття (хв/м2)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__tinting
+msgid "Tinting"
+msgstr "Тонування"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object21
+msgid "Tinting coefficient"
+msgstr "Коефіцієнт тонування"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__total_ratio
+msgid "Total Ratio"
+msgstr "Загальний коефіцієнт"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__total_amount_of_working_time
+msgid "Total amount of working time (in hours)"
+msgstr "Загальна кількість робочого часу (в годинах)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__total_cost_uah
+msgid "Total cost (in UAH)"
+msgstr "Загальна вартість (у гривнях)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__total_cost
+msgid "Total cost (in USD)"
+msgstr "Загальна вартість (у доларах США)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_component_production__type
+msgid "Type"
+msgstr "Тип"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__value
+msgid "Value"
+msgstr "Значення"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__volume
+msgid "Volume (in m3)"
+msgstr "Об'єм (у м3)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__warning
+msgid "Warning"
+msgstr "Попередження"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__width
+msgid "Width (in mm)"
+msgstr "Ширина (в мм)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__wood
+#: model:ir.model.fields.selection,name:cost_calculator.selection__component_production__type__wood
+msgid "Wood"
+msgstr "Дерево"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__wood_preparation_time
+msgid "Wood preparation time (in minutes)"
+msgstr "Час підготовки деревини (у хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object4
+msgid "Wood preparation time (min/m2)"
+msgstr "Час підготовки деревини (хв/м2)"
