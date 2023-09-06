@@ -52,21 +52,6 @@
                             <field name="total_ratio"/>
                         </group>
                         <group>
-                            <field name="wood_preparation_time" invisible="True"/>
-                            <field name="formwork_assembly_time" invisible="True"/>
-                            <field name="filling_time" invisible="True"/>
-                            <field name="cnc_installation_time" invisible="True"/>
-                            <field name="alignment_time_on_cnc" invisible="True"/>
-                            <field name="cutting_time_along_contour" invisible="True"/>
-                            <field name="slot_milling_time" invisible="True"/>
-                            <field name="calibration_time" invisible="True"/>
-                            <field name="grinding_time" invisible="True"/>
-                            <field name="edge_grinding_time" invisible="True"/>
-                            <field name="time_for_living_land" invisible="True"/>
-                            <field name="polishing_time" invisible="True"/>
-                            <field name="time_of_coverage" invisible="True"/>
-                            <field name="time_of_assembly" invisible="True"/>
-                            <field name="packing_time" invisible="True"/>
                             <field name="total_cost"/>
                             <field name="total_cost_uah"/>
                         </group>

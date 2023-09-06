@@ -9,9 +9,9 @@ class RecordCalculator(models.Model):
     _description = 'Calculator records'
 
     client = fields.Many2one('res.partner')
-    length = fields.Float(string='Length (in mm)', required=True)
-    width = fields.Float(string='Width (in mm)', required=True)
-    thickness = fields.Float(string='Thickness (in mm)', required=True)
+    length = fields.Float('Length (in mm)', required=True)
+    width = fields.Float('Width (in mm)', required=True)
+    thickness = fields.Float('Thickness (in mm)', required=True)
     wood = fields.Many2one('component.production', domain=[('type', '=', 'wood')])
     epoxy_resin = fields.Many2one('component.production', domain=[('type', '=', 'epoxy_resin')])
     form = fields.Selection([('oval', 'Oval'), ('rectangle', 'Rectangle')], default='rectangle')
@@ -19,64 +19,105 @@ class RecordCalculator(models.Model):
     living_land = fields.Boolean('Living edge')
     polishing = fields.Boolean()
     warning = fields.Char(readonly=True, compute='_compute_warning')
-    square = fields.Float(string='Square (in m2)', readonly=True, compute='_compute_square')
-    perimeter = fields.Float(string='Perimeter (in m)', readonly=True, compute='_compute_perimeter')
-    volume = fields.Float(string='Volume (in m3)', readonly=True, compute='_compute_volume')
-    fill_volume = fields.Float(string='Fill volume (in m3)', readonly=True, compute='_compute_epoxy_resin')
-    cost_of_epoxy_resin = \
-        fields.Float(string='Cost of epoxy resin (in USD)', readonly=True, compute='_compute_cost_of_epoxy_resin')
-    cost_of_wood = fields.Float(string='Cost of wood (in USD)', readonly=True, compute='_compute_cost_of_wood')
-    additional_expenses = \
-        fields.Float(string='Additional expenses (in USD)', readonly=True, compute='_compute_additional_expenses')
+    square = fields.Float('Square (in m2)', (12, 5), readonly=True, compute='_compute_square')
+    perimeter = fields.Float('Perimeter (in m)', (12, 5), readonly=True, compute='_compute_perimeter')
+    volume = fields.Float('Volume (in m3)', (12, 5), readonly=True, compute='_compute_volume')
+    fill_volume = (
+        fields.Float('Fill volume (in m3)', (12, 5), readonly=True, compute='_compute_epoxy_resin'))
+    cost_of_epoxy_resin = fields.Float(
+        'Cost of epoxy resin (in USD)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_cost_of_epoxy_resin')
+    cost_of_wood = (
+        fields.Float('Cost of wood (in USD)', (12, 5), readonly=True, compute='_compute_cost_of_wood'))
+    additional_expenses = fields.Float(
+        'Additional expenses (in USD)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_additional_expenses'
+    )
     wood_preparation_time = fields.Float(
-        string='Wood preparation time (in minutes)',
+        'Wood preparation time (in minutes)',
+        (12, 5),
         readonly=True,
         compute='_compute_wood_preparation_time'
     )
     formwork_assembly_time = fields.Float(
-        string='Formwork assembly time (in minutes)',
+        'Formwork assembly time (in minutes)',
+        (12, 5),
         readonly=True,
         compute='_compute_formwork_assembly_time'
     )
-    filling_time = fields.Float(string='Filling time (in minutes)', readonly=True, compute='_compute_filling_time')
-    cnc_installation_time = fields.Float(string='CNC installation time (in minutes)', readonly=True)
+    filling_time = (
+        fields.Float('Filling time (in minutes)', (12, 5), readonly=True, compute='_compute_filling_time'))
+    cnc_installation_time = (
+        fields.Float('CNC installation time (in minutes)', (12, 5), readonly=True))
     alignment_time_on_cnc = fields.Float(
-        string='Alignment time on CNC (in minutes)',
+        'Alignment time on CNC (in minutes)',
+        (12, 5),
         readonly=True,
         compute='_compute_alignment_time_on_cnc'
     )
     cutting_time_along_contour = fields.Float(
-        string='Cutting time along contour (in minutes)',
+        'Cutting time along contour (in minutes)',
+        (12, 5),
         readonly=True,
         compute='_compute_cutting_time_along_contour'
     )
-    slot_milling_time = fields.Float(string='Slot milling time (in minutes)', readonly=True)
-    calibration_time = \
-        fields.Float(string='Calibration time (in minutes)', readonly=True, compute='_compute_calibration_time')
-    grinding_time = fields.Float(string='Grinding time (in minutes)', readonly=True, compute='_compute_grinding_time')
-    edge_grinding_time = \
-        fields.Float(string='Edge grinding time (in minutes)', readonly=True, compute='_compute_edge_grinding_time')
+    slot_milling_time = fields.Float('Slot milling time (in minutes)', (12, 5), readonly=True)
+    calibration_time = fields.Float(
+        'Calibration time (in minutes)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_calibration_time'
+    )
+    grinding_time = fields.Float(
+        'Grinding time (in minutes)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_grinding_time'
+    )
+    edge_grinding_time = fields.Float(
+        'Edge grinding time (in minutes)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_edge_grinding_time'
+    )
     time_for_living_land = fields.Float(
-        string='Time for "living land" (in minutes)',
+        'Time for "living land" (in minutes)',
+        (12, 5),
         readonly=True,
         compute='_compute_time_for_living_land'
     )
-    polishing_time = \
-        fields.Float(string='Polishing time (in minutes)', readonly=True, compute='_compute_polishing_time')
-    time_of_coverage = \
-        fields.Float(string='Time of coverage (in minutes)', readonly=True, compute='_compute_time_of_coverage')
-    time_of_assembly = fields.Float(string='Time of assembly (in minutes)', readonly=True)
-    packing_time = fields.Float(string='Packing time (in minutes)', readonly=True, compute='_compute_packing_time')
+    polishing_time = fields.Float(
+        'Polishing time (in minutes)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_polishing_time'
+    )
+    time_of_coverage = fields.Float(
+        'Time of coverage (in minutes)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_time_of_coverage'
+    )
+    time_of_assembly = fields.Float('Time of assembly (in minutes)', (12, 5), readonly=True)
+    packing_time = (
+        fields.Float('Packing time (in minutes)', (12, 5), readonly=True, compute='_compute_packing_time'))
     total_amount_of_working_time = fields.Float(
-        string='Total amount of working time (in hours)',
+        'Total amount of working time (in hours)',
+        (12, 5),
         readonly=True,
         compute='_compute_total_amount_of_working_time'
     )
-    cost_of_work = fields.Float(string='Cost of work (in USD)', readonly=True, compute='_compute_cost_of_work')
+    cost_of_work = (
+        fields.Float('Cost of work (in USD)', (12, 5), readonly=True, compute='_compute_cost_of_work'))
     coefficients = fields.Char(readonly=True, compute='_compute_coefficients')
     total_ratio = fields.Float(readonly=True, compute='_compute_total_ratio')
-    total_cost = fields.Float(string='Total cost (in USD)', readonly=True, compute='_compute_total_cost_')
-    total_cost_uah = fields.Float(string='Total cost (in UAH)', readonly=True, compute='_compute_total_cost_uah')
+    total_cost = fields.Float('Total cost (in USD)', (12, 5), readonly=True, compute='_compute_total_cost_')
+    total_cost_uah = (
+        fields.Float('Total cost (in UAH)', (12, 5), readonly=True, compute='_compute_total_cost_uah'))
 
     @api.depends('width', 'thickness')
     def _compute_warning(self):
@@ -96,29 +137,29 @@ class RecordCalculator(models.Model):
     def _compute_square(self):
         for rec in self:
             if rec.form == 'oval':
-                rec.square = round(3.1415 / 4 * rec.length * rec.width / 1000000, 2)
+                rec.square = round(3.1415 / 4 * rec.length * rec.width / 1000000, 5)
             else:
-                rec.square = round(rec.length * rec.width / 1000000, 2)
+                rec.square = round(rec.length * rec.width / 1000000, 5)
 
     @api.depends('width', 'length', 'form')
     def _compute_perimeter(self):
         for rec in self:
             if rec.form == 'oval':
-                rec.perimeter = round(2 * 3.1415 * math.sqrt((rec.length ** 2 + rec.width ** 2) / 8) / 1000, 2)
+                rec.perimeter = round(2 * 3.1415 * math.sqrt((rec.length ** 2 + rec.width ** 2) / 8) / 1000, 5)
             else:
-                rec.perimeter = round((rec.length + rec.width) * 2 / 100, 2)
+                rec.perimeter = round((rec.length + rec.width) * 2 / 100, 5)
 
     @api.depends('width', 'length', 'thickness')
     def _compute_volume(self):
         for rec in self:
-            rec.volume = round(rec.length * rec.width / 1000000 * rec.thickness / 1000 * 1.5, 2)
+            rec.volume = round(rec.length * rec.width / 1000000 * rec.thickness / 1000 * 1.5, 5)
 
     @api.depends('epoxy_resin', 'volume', 'polishing')
     def _compute_epoxy_resin(self):
         for rec in self:
             percentage_of_filling = rec.env['parameter.calculator'].search([('code', '=', 'PRC')]).value
             rec.fill_volume = \
-                round(rec.volume * percentage_of_filling / 100 / 1.5 * 1000 * (1.2 if rec.polishing else 1), 2)
+                round(rec.volume * percentage_of_filling / 100 / 1.5 * 1000 * (1.2 if rec.polishing else 1), 5)
 
     @api.depends('fill_volume')
     def _compute_cost_of_epoxy_resin(self):
@@ -126,7 +167,7 @@ class RecordCalculator(models.Model):
         for rec in self:
             rec.cost_of_epoxy_resin = round(
                 rec.fill_volume / 1000 * (rec.epoxy_resin.cost + epoxy_resin_delivery_cost) * 1000,
-                2
+                5
             )
             if not rec.epoxy_resin:
                 rec.cost_of_epoxy_resin = 0
@@ -142,7 +183,7 @@ class RecordCalculator(models.Model):
     def _compute_additional_expenses(self):
         additional_expenses = self.env['parameter.calculator'].search([('code', '=', 'ADD')]).value
         for rec in self:
-            rec.additional_expenses = round(additional_expenses * rec.square, 2)
+            rec.additional_expenses = round(additional_expenses * rec.square, 5)
 
     @api.depends('square')
     def _compute_wood_preparation_time(self):
@@ -252,14 +293,14 @@ class RecordCalculator(models.Model):
                  rec.alignment_time_on_cnc + rec.cutting_time_along_contour + rec.slot_milling_time +
                  rec.calibration_time + rec.grinding_time + rec.edge_grinding_time + rec.time_for_living_land +
                  rec.polishing_time + rec.time_of_coverage + rec.time_of_assembly + rec.packing_time) / 60,
-                2
+                5
             )
 
     @api.depends('total_amount_of_working_time')
     def _compute_cost_of_work(self):
         labour_costs = self.env['parameter.calculator'].search([('code', '=', 'LBR')]).value
         for rec in self:
-            rec.cost_of_work = round(rec.total_amount_of_working_time * labour_costs, 2)
+            rec.cost_of_work = round(rec.total_amount_of_working_time * labour_costs, 5)
 
     @api.depends('epoxy_resin', 'tinting', 'living_land', 'polishing')
     def _compute_coefficients(self):
@@ -287,7 +328,7 @@ class RecordCalculator(models.Model):
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "CFF")]).value
             if rec.polishing:
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "PLH")]).value
-            rec.total_ratio = round(total_ratio, 2)
+            rec.total_ratio = round(total_ratio, 5)
 
     @api.depends('cost_of_wood', 'cost_of_epoxy_resin', 'cost_of_work', 'total_ratio', 'additional_expenses', 'wood')
     def _compute_total_cost_(self):
@@ -298,10 +339,11 @@ class RecordCalculator(models.Model):
             rec.total_cost = round(
                 (rec.cost_of_wood + rec.cost_of_epoxy_resin + rec.cost_of_work) * rec.total_ratio +
                 rec.additional_expenses,
-                2
+                5
             )
 
     @api.depends('total_cost')
     def _compute_total_cost_uah(self):
         for rec in self:
-            rec.total_cost_uah = rec.total_cost / self.env['res.currency'].search([('name', '=', 'USD')], limit=1).rate
+            rec.total_cost_uah = (
+                    rec.total_cost / self.env['res.currency'].search([('name', '=', 'USD')], limit=1).rate)
