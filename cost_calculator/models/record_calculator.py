@@ -147,7 +147,7 @@ class RecordCalculator(models.Model):
             if rec.form == 'oval':
                 rec.perimeter = round(2 * 3.1415 * math.sqrt((rec.length ** 2 + rec.width ** 2) / 8) / 1000, 5)
             else:
-                rec.perimeter = round((rec.length + rec.width) * 2 / 100, 5)
+                rec.perimeter = round((rec.length + rec.width) * 2 / 1000, 5)
 
     @api.depends('width', 'length', 'thickness')
     def _compute_volume(self):
