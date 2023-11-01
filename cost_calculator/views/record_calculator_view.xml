@@ -34,6 +34,9 @@
                             <field name="tinting"/>
                             <field name="living_land"/>
                             <field name="polishing"/>
+                            <field name="burned_edge"/>
+                            <field name="waterfall"/>
+                            <field name="percentage_of_filling"/>
                         </group>
                     </group>
                     <group><field name="warning" nolabel="1"/></group>

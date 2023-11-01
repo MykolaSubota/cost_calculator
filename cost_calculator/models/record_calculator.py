@@ -17,6 +17,8 @@ class RecordCalculator(models.Model):
     form = fields.Selection([('oval', 'Oval'), ('rectangle', 'Rectangle')], default='rectangle')
     tinting = fields.Boolean()
     living_land = fields.Boolean('Living edge')
+    burned_edge = fields.Boolean()
+    waterfall = fields.Selection([('1', 'One side'), ('2', 'Two sides')])
     polishing = fields.Boolean()
     warning = fields.Char(readonly=True, compute='_compute_warning')
     square = fields.Float('Square (in m2)', (12, 5), readonly=True, compute='_compute_square')
@@ -90,6 +92,12 @@ class RecordCalculator(models.Model):
         readonly=True,
         compute='_compute_time_for_living_land'
     )
+    edge_burning_time = fields.Float(
+        'Edge burning time (in minutes)',
+        (12, 5),
+        readonly=True,
+        compute='_compute_edge_burning_time'
+    )
     polishing_time = fields.Float(
         'Polishing time (in minutes)',
         (12, 5),
@@ -118,6 +126,7 @@ class RecordCalculator(models.Model):
     total_cost = fields.Float('Total cost (in USD)', (12, 5), readonly=True, compute='_compute_total_cost_')
     total_cost_uah = (
         fields.Float('Total cost (in UAH)', (12, 5), readonly=True, compute='_compute_total_cost_uah'))
+    percentage_of_filling = fields.Selection([('40', '40'), ('55', '55'), ('80', '80')], default='55')
 
     @api.depends('width', 'thickness')
     def _compute_warning(self):
@@ -154,25 +163,31 @@ class RecordCalculator(models.Model):
         for rec in self:
             rec.volume = round(rec.length * rec.width / 1000000 * rec.thickness / 1000 * 1.5, 5)
 
-    @api.depends('epoxy_resin', 'volume', 'polishing')
+    @api.depends('epoxy_resin', 'volume', 'polishing', 'percentage_of_filling')
     def _compute_epoxy_resin(self):
         for rec in self:
-            percentage_of_filling = rec.env['parameter.calculator'].search([('code', '=', 'PRC')]).value
-            rec.fill_volume = \
-                round(rec.volume * percentage_of_filling / 100 / 1.5 * 1000 * (1.2 if rec.polishing else 1), 5)
+            if rec.epoxy_resin:
+                rec.fill_volume = \
+                    round(
+                        rec.volume * int(rec.percentage_of_filling) / 100 / 1.5 * 1000 * (1.2 if rec.polishing else 1),
+                        5
+                    )
+            else:
+                rec.fill_volume = 0
 
     @api.depends('fill_volume')
     def _compute_cost_of_epoxy_resin(self):
         epoxy_resin_delivery_cost = self.env['parameter.calculator'].search([('code', '=', 'EPX')]).value
         for rec in self:
-            rec.cost_of_epoxy_resin = round(
-                rec.fill_volume / 1000 * (rec.epoxy_resin.cost + epoxy_resin_delivery_cost) * 1000,
-                5
-            )
-            if not rec.epoxy_resin:
+            if rec.epoxy_resin:
+                rec.cost_of_epoxy_resin = round(
+                    rec.fill_volume / 1000 * (rec.epoxy_resin.cost + epoxy_resin_delivery_cost) * 1000,
+                    5
+                )
+            else:
                 rec.cost_of_epoxy_resin = 0
 
-    @api.depends('fill_volume', 'fill_volume')
+    @api.depends('fill_volume', 'wood')
     def _compute_cost_of_wood(self):
         cost_of_wood_delivery = self.env['parameter.calculator'].search([('code', '=', 'CST')]).value
         for rec in self:
@@ -246,6 +261,15 @@ class RecordCalculator(models.Model):
             else:
                 rec.time_for_living_land = 0
 
+    @api.depends('length', 'burned_edge')
+    def _compute_edge_burning_time(self):
+        edge_burning_time = self.env['parameter.calculator'].search([('code', '=', 'EDB')]).value
+        for rec in self:
+            if rec.burned_edge:
+                rec.edge_burning_time = edge_burning_time * rec.length * 2 / 1000
+            else:
+                rec.edge_burning_time = 0
+
     @api.depends('square')
     def _compute_polishing_time(self):
         polishing_time = self.env['parameter.calculator'].search([('code', '=', 'PLS')]).value
@@ -281,18 +305,26 @@ class RecordCalculator(models.Model):
         'grinding_time',
         'edge_grinding_time',
         'time_for_living_land',
+        'edge_burning_time',
         'polishing_time',
         'time_of_coverage',
         'time_of_assembly',
-        'packing_time'
+        'packing_time',
+        'waterfall'
     )
     def _compute_total_amount_of_working_time(self):
         for rec in self:
+            waterfall_time = 0
+            if rec.waterfall == '1':
+                waterfall_time = self.env["parameter.calculator"].search([("code", "=", "TMW")]).value
+            else:
+                waterfall_time = self.env["parameter.calculator"].search([("code", "=", "TMW")]).value * 2
             rec.total_amount_of_working_time = round(
                 (rec.wood_preparation_time + rec.formwork_assembly_time + rec.filling_time + rec.cnc_installation_time +
                  rec.alignment_time_on_cnc + rec.cutting_time_along_contour + rec.slot_milling_time +
                  rec.calibration_time + rec.grinding_time + rec.edge_grinding_time + rec.time_for_living_land +
-                 rec.polishing_time + rec.time_of_coverage + rec.time_of_assembly + rec.packing_time) / 60,
+                 rec.polishing_time + rec.time_of_coverage + rec.time_of_assembly + rec.packing_time + rec.burned_edge +
+                 waterfall_time) / 60,
                 5
             )
 
@@ -302,7 +334,7 @@ class RecordCalculator(models.Model):
         for rec in self:
             rec.cost_of_work = round(rec.total_amount_of_working_time * labour_costs, 5)
 
-    @api.depends('epoxy_resin', 'tinting', 'living_land', 'polishing')
+    @api.depends('epoxy_resin', 'tinting', 'living_land', 'polishing', 'burned_edge', 'waterfall')
     def _compute_coefficients(self):
         for rec in self:
             coefficients = str(self.env['parameter.calculator'].search([('code', '=', 'INT')]).value)
@@ -312,8 +344,12 @@ class RecordCalculator(models.Model):
                 coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "TNT")]).value}'
             if rec.living_land:
                 coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "CFF")]).value}'
+            if rec.burned_edge:
+                coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "EDR")]).value}'
             if rec.polishing:
                 coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "PLH")]).value}'
+            if rec.waterfall:
+                coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "WTR")]).value if rec.waterfall == "1" else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2}'
             rec.coefficients = coefficients
 
     @api.depends('coefficients')
@@ -326,11 +362,24 @@ class RecordCalculator(models.Model):
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "TNT")]).value
             if rec.living_land:
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "CFF")]).value
+            if rec.burned_edge:
+                total_ratio *= self.env["parameter.calculator"].search([("code", "=", "EDR")]).value
             if rec.polishing:
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "PLH")]).value
+            if rec.waterfall:
+                total_ratio *= (
+                    self.env["parameter.calculator"].search([("code", "=", "WTR")]).value) if rec.waterfall == '1' \
+                    else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2
             rec.total_ratio = round(total_ratio, 5)
 
-    @api.depends('cost_of_wood', 'cost_of_epoxy_resin', 'cost_of_work', 'total_ratio', 'additional_expenses', 'wood')
+    @api.depends(
+        'cost_of_wood',
+        'cost_of_epoxy_resin',
+        'cost_of_work',
+        'total_ratio',
+        'additional_expenses',
+        'wood'
+    )
     def _compute_total_cost_(self):
         for rec in self:
             if not rec.wood:

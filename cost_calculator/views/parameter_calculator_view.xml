@@ -3,7 +3,7 @@
         <field name="name">parameter.calculator.tree</field>
         <field name="model">parameter.calculator</field>
         <field name="arch" type="xml">
-            <tree string="Parameters" create="0" delete="0">
+            <tree string="Parameters" create="0">
                 <field name="name"/>
                 <field name="value"/>
             </tree>
