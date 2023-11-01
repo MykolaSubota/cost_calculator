@@ -4,16 +4,33 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-18 07:14+0000\n"
-"PO-Revision-Date: 2023-08-18 07:14+0000\n"
+"POT-Creation-Date: 2023-11-01 13:32+0000\n"
+"PO-Revision-Date: 2023-11-01 15:39+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__40
+msgid "40"
+msgstr ""
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__55
+msgid "55"
+msgstr ""
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__80
+msgid "80"
+msgstr ""
 
 #. module: cost_calculator
 #: model:parameter.calculator,name:cost_calculator.object3
@@ -34,6 +51,11 @@ msgstr "Час вирівнювання на ЧПК (в хвилинах)"
 #: model:parameter.calculator,name:cost_calculator.object8
 msgid "Alignment time on CNC (min/m2)"
 msgstr "Час вирівнювання на ЧПК (в хвилинах)"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__burned_edge
+msgid "Burned Edge"
+msgstr "Обпалений край"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__cnc_installation_time
@@ -160,6 +182,21 @@ msgid "Display Name"
 msgstr "Назва для відображення"
 
 #. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object25
+msgid "Edge burn coefficient"
+msgstr "Коефіцієнт обпаленого краю"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__edge_burning_time
+msgid "Edge burning time (in minutes)"
+msgstr "Час обпалення краю (в хвилинах)"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object24
+msgid "Edge burning time (min/m)"
+msgstr "Час обпалення краю (хв/м)"
+
+#. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__edge_grinding_time
 msgid "Edge grinding time (in minutes)"
 msgstr "Час шліфування країв (у хвилинах)"
@@ -225,7 +262,7 @@ msgstr "Час шліфування (хв/м2)"
 #: model:ir.model.fields,field_description:cost_calculator.field_parameter_calculator__id
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: cost_calculator
 #: model:parameter.calculator,name:cost_calculator.object20
@@ -265,7 +302,7 @@ msgstr "Довжина (в мм)"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__living_land
-msgid "Living Land"
+msgid "Living edge"
 msgstr "Живий край"
 
 #. module: cost_calculator
@@ -288,6 +325,11 @@ msgstr "Нема ніяких параметрів!"
 #: model_terms:ir.actions.act_window,help:cost_calculator.action_records_calculator
 msgid "No records!"
 msgstr "Нема ніяких записів!"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__waterfall__1
+msgid "One side"
+msgstr "Одна сторона"
 
 #. module: cost_calculator
 #: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__form__oval
@@ -313,8 +355,8 @@ msgid "Parameters"
 msgstr "Параметри"
 
 #. module: cost_calculator
-#: model:parameter.calculator,name:cost_calculator.object0
-msgid "Percentage of filling"
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__percentage_of_filling
+msgid "Percentage Of Filling"
 msgstr "Відсоток заливки"
 
 #. module: cost_calculator
@@ -330,7 +372,7 @@ msgstr "Полірування"
 #. module: cost_calculator
 #: model:parameter.calculator,name:cost_calculator.object23
 msgid "Polishing coefficient"
-msgstr ""
+msgstr "Коефіцієнт полірування"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__polishing_time
@@ -385,6 +427,11 @@ msgid "Time for \"living land\" (min/m)"
 msgstr "Час для \"живого краю\" (хв/м)"
 
 #. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object26
+msgid "Time for waterfall (min/unit)"
+msgstr "Час на водоспад (хв/шт)"
+
+#. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__time_of_assembly
 msgid "Time of assembly (in minutes)"
 msgstr "Час збирання (у хвилинах)"
@@ -435,6 +482,11 @@ msgid "Total cost (in USD)"
 msgstr "Загальна вартість (у доларах США)"
 
 #. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__waterfall__2
+msgid "Two sides"
+msgstr "Дві сторони"
+
+#. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_component_production__type
 msgid "Type"
 msgstr "Тип"
@@ -453,6 +505,16 @@ msgstr "Об'єм (у м3)"
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__warning
 msgid "Warning"
 msgstr "Попередження"
+
+#. module: cost_calculator
+#: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__waterfall
+msgid "Waterfall"
+msgstr "Водоспад"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object27
+msgid "Waterfall coefficient"
+msgstr "Коефіцієнт водоспаду"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__width
