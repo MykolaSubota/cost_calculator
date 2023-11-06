@@ -375,7 +375,7 @@ class RecordCalculator(models.Model):
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "EDR")]).value
             if rec.polishing:
                 total_ratio *= self.env["parameter.calculator"].search([("code", "=", "PLH")]).value
-            if rec.waterfall:
+            if rec.waterfall != '0':
                 total_ratio *= (
                     self.env["parameter.calculator"].search([("code", "=", "WTR")]).value) if rec.waterfall == '1' \
                     else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2
