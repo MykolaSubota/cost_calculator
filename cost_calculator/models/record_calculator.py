@@ -18,7 +18,7 @@ class RecordCalculator(models.Model):
     tinting = fields.Boolean()
     living_land = fields.Boolean('Living edge')
     burned_edge = fields.Boolean()
-    waterfall = fields.Selection([('1', 'One side'), ('2', 'Two sides')])
+    waterfall = fields.Selection([('0', 'Missing'), ('1', 'One side'), ('2', 'Two sides')], default='0')
     polishing = fields.Boolean()
     warning = fields.Char(readonly=True, compute='_compute_warning')
     square = fields.Float('Square (in m2)', (12, 5), readonly=True, compute='_compute_square')
@@ -126,7 +126,10 @@ class RecordCalculator(models.Model):
     total_cost = fields.Float('Total cost (in USD)', (12, 5), readonly=True, compute='_compute_total_cost_')
     total_cost_uah = (
         fields.Float('Total cost (in UAH)', (12, 5), readonly=True, compute='_compute_total_cost_uah'))
-    percentage_of_filling = fields.Selection([('40', '40'), ('55', '55'), ('80', '80')], default='55')
+    percentage_of_filling = fields.Selection(
+        [('MNM', 'Minimum'), ('AVR', 'Average'), ('MXM', 'Maximum')],
+        default='AVR'
+    )
 
     @api.depends('width', 'thickness')
     def _compute_warning(self):
@@ -169,7 +172,9 @@ class RecordCalculator(models.Model):
             if rec.epoxy_resin:
                 rec.fill_volume = \
                     round(
-                        rec.volume * int(rec.percentage_of_filling) / 100 / 1.5 * 1000 * (1.2 if rec.polishing else 1),
+                        rec.volume *
+                        self.env['parameter.calculator'].search([('code', '=', rec.percentage_of_filling)]).value / 100
+                        / 1.5 * 1000 * (1.2 if rec.polishing else 1),
                         5
                     )
             else:
@@ -317,7 +322,7 @@ class RecordCalculator(models.Model):
             waterfall_time = 0
             if rec.waterfall == '1':
                 waterfall_time = self.env["parameter.calculator"].search([("code", "=", "TMW")]).value
-            else:
+            elif rec.waterfall == '2':
                 waterfall_time = self.env["parameter.calculator"].search([("code", "=", "TMW")]).value * 2
             rec.total_amount_of_working_time = round(
                 (rec.wood_preparation_time + rec.formwork_assembly_time + rec.filling_time + rec.cnc_installation_time +
@@ -348,7 +353,7 @@ class RecordCalculator(models.Model):
                 coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "EDR")]).value}'
             if rec.polishing:
                 coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "PLH")]).value}'
-            if rec.waterfall:
+            if rec.waterfall != '0':
                 coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "WTR")]).value if rec.waterfall == "1" else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2}'
             rec.coefficients = coefficients
 

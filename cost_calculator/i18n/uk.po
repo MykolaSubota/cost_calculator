@@ -6,31 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-01 13:32+0000\n"
-"PO-Revision-Date: 2023-11-01 15:39+0200\n"
+"POT-Creation-Date: 2023-11-05 19:46+0000\n"
+"PO-Revision-Date: 2023-11-05 19:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
-"X-Generator: Poedit 3.0.1\n"
-
-#. module: cost_calculator
-#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__40
-msgid "40"
-msgstr ""
-
-#. module: cost_calculator
-#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__55
-msgid "55"
-msgstr ""
-
-#. module: cost_calculator
-#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__80
-msgid "80"
-msgstr ""
 
 #. module: cost_calculator
 #: model:parameter.calculator,name:cost_calculator.object3
@@ -51,6 +34,16 @@ msgstr "Час вирівнювання на ЧПК (в хвилинах)"
 #: model:parameter.calculator,name:cost_calculator.object8
 msgid "Alignment time on CNC (min/m2)"
 msgstr "Час вирівнювання на ЧПК (в хвилинах)"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__avr
+msgid "Average"
+msgstr "Середній"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object29
+msgid "Average percentage of filling"
+msgstr "Середній відсоток заливки"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__burned_edge
@@ -304,6 +297,31 @@ msgstr "Довжина (в мм)"
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__living_land
 msgid "Living edge"
 msgstr "Живий край"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__mxm
+msgid "Maximum"
+msgstr "Максимальний"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object30
+msgid "Maximum percentage of filling"
+msgstr "Максимальний відсоток заливки"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__mnm
+msgid "Minimum"
+msgstr "Мінімальний"
+
+#. module: cost_calculator
+#: model:parameter.calculator,name:cost_calculator.object28
+msgid "Minimum percentage of filling"
+msgstr "Мінімальний відсоток заливки"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__waterfall__0
+msgid "Missing"
+msgstr "Відстуній"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_component_production__name

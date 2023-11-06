@@ -27,10 +27,10 @@
                             <field name="width"/>
                             <field name="thickness"/>
                             <field name="form"/>
-                        </group>
-                        <group>
                             <field name="wood" options="{'no_open': True, 'no_create': True}"/>
                             <field name="epoxy_resin" options="{'no_open': True, 'no_create': True}"/>
+                        </group>
+                        <group>
                             <field name="tinting"/>
                             <field name="living_land"/>
                             <field name="polishing"/>

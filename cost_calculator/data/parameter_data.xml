@@ -161,5 +161,23 @@
             <field name="code">WTR</field>
             <field name="value">1.04</field>
         </record>
+
+        <record id="object28" model="parameter.calculator">
+            <field name="name">Minimum percentage of filling</field>
+            <field name="code">MNM</field>
+            <field name="value">40</field>
+        </record>
+
+        <record id="object29" model="parameter.calculator">
+            <field name="name">Average percentage of filling</field>
+            <field name="code">AVR</field>
+            <field name="value">55</field>
+        </record>
+
+        <record id="object30" model="parameter.calculator">
+            <field name="name">Maximum percentage of filling</field>
+            <field name="code">MXM</field>
+            <field name="value">80</field>
+        </record>
     </data>
 </odoo>
