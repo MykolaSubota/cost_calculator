@@ -18,7 +18,11 @@ class RecordCalculator(models.Model):
     tinting = fields.Boolean()
     living_land = fields.Boolean('Living edge')
     burned_edge = fields.Boolean()
-    waterfall = fields.Selection([('0', 'Missing'), ('1', 'One side'), ('2', 'Two sides')], default='0')
+    waterfall = fields.Selection(
+        [('0', 'Missing'), ('1', 'One side'), ('2', 'Two sides')],
+        default='0',
+        required=True
+    )
     polishing = fields.Boolean()
     warning = fields.Char(readonly=True, compute='_compute_warning')
     square = fields.Float('Square (in m2)', (12, 5), readonly=True, compute='_compute_square')
