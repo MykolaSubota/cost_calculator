@@ -378,7 +378,7 @@ class RecordCalculator(models.Model):
             if rec.waterfall != '0':
                 total_ratio *= (
                     self.env["parameter.calculator"].search([("code", "=", "WTR")]).value) if rec.waterfall == '1' \
-                    else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2
+                    else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2 - 1
             rec.total_ratio = round(total_ratio, 5)
 
     @api.depends(
