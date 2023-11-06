@@ -358,7 +358,7 @@ class RecordCalculator(models.Model):
             if rec.polishing:
                 coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "PLH")]).value}'
             if rec.waterfall != '0':
-                coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "WTR")]).value if rec.waterfall == "1" else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2}'
+                coefficients += f'; {self.env["parameter.calculator"].search([("code", "=", "WTR")]).value if rec.waterfall == "1" else self.env["parameter.calculator"].search([("code", "=", "WTR")]).value * 2 - 1}'
             rec.coefficients = coefficients
 
     @api.depends('coefficients')
