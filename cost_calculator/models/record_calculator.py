@@ -132,7 +132,8 @@ class RecordCalculator(models.Model):
         fields.Float('Total cost (in UAH)', (12, 5), readonly=True, compute='_compute_total_cost_uah'))
     percentage_of_filling = fields.Selection(
         [('0', 'Missing'), ('MNM', 'Minimum'), ('AVR', 'Average'), ('MXM', 'Maximum')],
-        default='AVR'
+        default='AVR',
+        required=True
     )
 
     @api.depends('width', 'thickness')
