@@ -131,7 +131,7 @@ class RecordCalculator(models.Model):
     total_cost_uah = (
         fields.Float('Total cost (in UAH)', (12, 5), readonly=True, compute='_compute_total_cost_uah'))
     percentage_of_filling = fields.Selection(
-        [('MNM', 'Minimum'), ('AVR', 'Average'), ('MXM', 'Maximum')],
+        [('0', 'Missing'), ('MNM', 'Minimum'), ('AVR', 'Average'), ('MXM', 'Maximum')],
         default='AVR'
     )
 
@@ -173,7 +173,7 @@ class RecordCalculator(models.Model):
     @api.depends('epoxy_resin', 'volume', 'polishing', 'percentage_of_filling')
     def _compute_epoxy_resin(self):
         for rec in self:
-            if rec.epoxy_resin:
+            if rec.epoxy_resin and rec.percentage_of_filling != '0':
                 rec.fill_volume = \
                     round(
                         rec.volume *
