@@ -6,14 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-05 19:46+0000\n"
-"PO-Revision-Date: 2023-11-05 19:46+0000\n"
+"POT-Creation-Date: 2023-11-07 10:13+0000\n"
+"PO-Revision-Date: 2023-11-07 12:13+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: \n"
+"X-Generator: Poedit 3.0.1\n"
 
 #. module: cost_calculator
 #: model:parameter.calculator,name:cost_calculator.object3
@@ -538,6 +540,11 @@ msgstr "Коефіцієнт водоспаду"
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__width
 msgid "Width (in mm)"
 msgstr "Ширина (в мм)"
+
+#. module: cost_calculator
+#: model:ir.model.fields.selection,name:cost_calculator.selection__record_calculator__percentage_of_filling__0
+msgid "Without filling"
+msgstr "Без заливки"
 
 #. module: cost_calculator
 #: model:ir.model.fields,field_description:cost_calculator.field_record_calculator__wood
